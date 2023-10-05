@@ -1,17 +1,13 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import RollTheDice from './views/RollTheDice';
-import CurrencyConverter from './views/CurrencyConverter';
-import TicTacToe from './views/TicTacToe';
+import MusicPlayer from './views/MusicPlayer';
 
 export default function App(): JSX.Element {
   return (
     <>
       {/* <RollTheDice /> */}
       {/* <CurrencyConverter /> */}
-      <TicTacToe />
+      {/* <TicTacToe /> */}
+      <MusicPlayer />
     </>
   );
 }
-
-const styles = StyleSheet.create({});
