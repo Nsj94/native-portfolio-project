@@ -1,12 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
-import Snackbar from 'react-native-snackbar';
 import EncryptedStorage from 'react-native-encrypted-storage';
-import {z} from 'zod';
-
-const mySchema = z.object({
-  email: z.string().email().trim(),
-  password: z.string(),
-});
+import Snackbar from 'react-native-snackbar';
 
 export const AuthContext: any = createContext(null);
 
