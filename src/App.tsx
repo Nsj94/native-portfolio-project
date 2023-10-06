@@ -1,51 +1,12 @@
 import React from 'react';
-import MusicPlayer from './views/MusicPlayer';
-import {NavigationContainer} from '@react-navigation/native';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from './views/Home';
-import RollTheDice from './views/RollTheDice';
-import CurrencyConverter from './views/CurrencyConverter';
-import TicTacToe from './views/TicTacToe';
-import TrendingProducts from './views/TrendingProducts';
-import SingleProduct from './views/SingleProductDetails';
-import SingleProductDetails from './views/SingleProductDetails';
-
-export type RootStackParamsList = {
-  Home: undefined;
-  MusicPlayer: undefined;
-  TicTacToe: undefined;
-  CurrencyConverter: undefined;
-  RollTheDice: undefined;
-  TrendingProducts: undefined;
-  SingleProductDetails: {productId: number};
-};
-const Stack = createNativeStackNavigator<RootStackParamsList>();
+import {AuthProvider} from './context/AuthContext';
+import Router from './Routes/Router';
 
 export default function App(): JSX.Element {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="MusicPlayer" component={MusicPlayer} />
-        <Stack.Screen name="TicTacToe" component={TicTacToe} />
-        <Stack.Screen name="CurrencyConverter" component={CurrencyConverter} />
-        <Stack.Screen name="RollTheDice" component={RollTheDice} />
-        <Stack.Screen
-          name="TrendingProducts"
-          component={TrendingProducts}
-          options={{
-            title: 'Trending Product',
-          }}
-        />
-        <Stack.Screen
-          name="SingleProductDetails"
-          component={SingleProductDetails}
-          options={{
-            title: 'Single Product Details',
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <Router />
+    </AuthProvider>
   );
 }
